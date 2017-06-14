@@ -39,6 +39,8 @@ namespace ArkMapPlot
         {
             classData.Clear();
             displayToClass.Clear();
+
+
             ClassData data;
             JObject obj;
             JArray arr;
@@ -46,41 +48,39 @@ namespace ArkMapPlot
             string displayName = string.Empty;
             string fileName = string.Empty;
             string fileData = null;
-            
-            string[] classNameMap = new string[1];
-            classNameMap[0] = "test,test";
-            int len = classNameMap.Length;
-            for (int i = 0; i < len; i++)
+            string[] classNames;
+            string[] displayNames;
+            string classMapName = "ark_data_en.json";
+            string classMapData = File.ReadAllText(classMapName);
+            JObject classMapJson = JObject.Parse(classMapData);
+            JArray classArray = (JArray)classMapJson["creatures"];
+            int arcnt = classArray.Count;
+            classNames = new string[arcnt];
+            displayNames = new string[arcnt];
+            for (int i = 0; i < arcnt; i++)
             {
-                displayName = classNameMap[i].Split(',')[0];
-                className = classNameMap[i].Split(',')[1];
+                classNames[i] = classArray[i]["class"].Value<string>();
+                displayNames[i] = classArray[i]["name"].Value<string>();
+                displayName = displayNames[i];
+                className = classNames[i];
                 fileName = className + ".json";
-                fileData = File.ReadAllText(fileName);
-                print("fileData: " + fileData);
-                obj = JObject.Parse(fileData);
-                print(obj.Count);
-                arr = obj["array"] as JArray;
-                data = new ClassData(className, displayName);
-                data.loadMembers(arr);
-                displayToClass.Add(displayName, className);
-                classData.Add(className, data);
+                if (File.Exists(fileName))
+                {
+                    fileData = File.ReadAllText(fileName);
+                    print("fileData: " + fileData);
+                    obj = JObject.Parse(fileData);
+                    print(obj.Count);
+                    arr = obj["array"] as JArray;
+                    data = new ClassData(className, displayName);
+                    data.loadMembers(arr);
+                    displayToClass.Add(displayName, className);
+                    classData.Add(className, data);
+                }
+                else
+                {
+                    print("Did not locate any file for: " + fileName);
+                }
             }
-            /**
-            * Below here is manually added test data.
-            **/
-            displayToClass.Add("test1", "test1name");
-            displayToClass.Add("test2", "test2name");
-
-            data = new ClassData("test1name", "test1");
-            data.members.Add(new MemberData("test1Name"));
-            data.members.Add(new MemberData("test1Name"));
-            classData.Add("test1name", data);
-
-            data = new ClassData("test2name", "test2");
-            data.members.Add(new MemberData("test2name"));
-            data.members.Add(new MemberData("test2name"));
-            data.members.Add(new MemberData("test2name"));
-            classData.Add("test2name", data);
         }
 
         private void populateWindow()
@@ -92,7 +92,6 @@ namespace ArkMapPlot
             ClassList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) 
             {
                 updateMemberList((string)ClassList.SelectedItem);
-                //MemberInfo.SelectedItem = null;
                 updateMemberData(null);
                 print("Selected class: " + ClassList.SelectedItem);
             };
@@ -134,11 +133,9 @@ namespace ArkMapPlot
         {
             if (data == null)
             {
-                //MemberInfo.Items.Clear();
                 MemberList.SelectedItem = null;
                 return;
             }
-            //data.updateDisplay(MemberInfo);
             data.updateDisplay(MemberInfoBlock);
         }
 
