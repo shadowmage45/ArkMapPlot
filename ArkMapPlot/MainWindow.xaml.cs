@@ -92,7 +92,7 @@ namespace ArkMapPlot
             ClassList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) 
             {
                 updateMemberList((string)ClassList.SelectedItem);
-                MemberInfo.SelectedItem = null;
+                //MemberInfo.SelectedItem = null;
                 updateMemberData(null);
                 print("Selected class: " + ClassList.SelectedItem);
             };
@@ -134,11 +134,12 @@ namespace ArkMapPlot
         {
             if (data == null)
             {
-                MemberInfo.Items.Clear();
+                //MemberInfo.Items.Clear();
                 MemberList.SelectedItem = null;
                 return;
             }
-            data.updateDisplay(MemberInfo);
+            //data.updateDisplay(MemberInfo);
+            data.updateDisplay(MemberInfoBlock);
         }
 
         private BitmapImage loadImage(string file)
@@ -238,6 +239,20 @@ namespace ArkMapPlot
             c.Add("z  : " + z);
             c.Add("fem: " + isFemale);
             c.Add("lev: " + baseLevels);
+        }
+
+        public void updateDisplay(TextBlock block)
+        {
+            string data = string.Empty;
+            data = "id : " + displayName;
+            data += "\nlat: " + lat;
+            data += "\nlon: " + lon;
+            data += "\nx  : " + x;
+            data += "\ny  : " + y;
+            data += "\nz  : " + z;
+            data += "\nfem: " + isFemale;
+            data += "\nlev: " + baseLevels;
+            block.Text = data;
         }
     }
 }

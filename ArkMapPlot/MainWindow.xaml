@@ -9,8 +9,10 @@
     <Grid>
         <ListBox x:Name="ClassList" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="9,9,9,9" Width="100" Height="Auto"/>
         <ListBox x:Name="MemberList" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="109,9,9,9" Width="100" Height="Auto"/>
-        <Image x:Name ="MapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="209,9,9,109" Height="Auto" Width="Auto"/>
-        <ListBox x:Name="MemberInfo" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="209,9,9,9" Width="Auto" Height="100"/>
+        <Image x:Name ="MapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="209,9,9,118" Height="Auto" Width="Auto"/>
+        <!--<ListBox x:Name="MemberInfo" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="209,9,9,9" Width="Auto" Height="100"/>-->
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="218,18,9,9" Width="Auto" Height="100">
+            <TextBlock x:Name="MemberInfoBlock" TextWrapping="Wrap"></TextBlock><!--HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="209,9,9,9" Width="Auto" Height="100" -->
+        </ScrollViewer>
     </Grid>
-
 </Window>
