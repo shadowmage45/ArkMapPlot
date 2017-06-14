@@ -47,7 +47,8 @@ namespace ArkMapPlot
             string fileName = string.Empty;
             string fileData = null;
             
-            string[] classNameMap = new string[0];
+            string[] classNameMap = new string[1];
+            classNameMap[0] = "test,test";
             int len = classNameMap.Length;
             for (int i = 0; i < len; i++)
             {
@@ -55,8 +56,10 @@ namespace ArkMapPlot
                 className = classNameMap[i].Split(',')[1];
                 fileName = className + ".json";
                 fileData = File.ReadAllText(fileName);
+                print("fileData: " + fileData);
                 obj = JObject.Parse(fileData);
-                arr = obj.Children<JArray>().First();
+                print(obj.Count);
+                arr = obj["array"] as JArray;
                 data = new ClassData(className, displayName);
                 data.loadMembers(arr);
                 displayToClass.Add(displayName, className);
@@ -89,37 +92,55 @@ namespace ArkMapPlot
             ClassList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) 
             {
                 updateMemberList((string)ClassList.SelectedItem);
+                print("Selected class: " + ClassList.SelectedItem);
             };
             MemberList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
             {
-                Console.Out.WriteLine("Selected memeber: " + MemberList.SelectedItem);
+                print("Selected member: " + MemberList.SelectedItem);
             };
+
+            loadMap(string.Empty);
         }
 
         private void loadMap(string configFileName)
         {
+            //TODO load values from map config setup
             string mapName = string.Empty;
-            string mapImageFileName = string.Empty;            
-            System.Drawing.Image img = System.Drawing.Image.FromFile(mapImageFileName);
-            int width = img.Width;
-            int height = img.Height;
-
-            BitmapSource src = BitmapSource.Create(width, height, 100, 100, PixelFormats.Rgb24, null, new Bitmap(img)., 8*3);
-
-            MapImage.Source = src;
+            string mapImageFileName = "ark-map.png";
+            MapImage.Source = loadImage(mapImageFileName);
         }
 
         private void updateMemberList(string displayName)
         {
-            System.Console.Out.WriteLine("Selected: " + displayName);
+            print("Selected: " + displayName);
             string className = displayToClass[displayName];
             ClassData data = classData[className];
+            print("Num of members: " + data.members.Count);
             MemberList.Items.Clear();
             foreach (MemberData member in data.members)
             {
                 MemberList.Items.Add(member.displayName);
             }
+        }
 
+        private BitmapImage loadImage(string file)
+        {
+            string path = System.IO.Path.GetFullPath(file);
+            print("File to load: " + file+ " :: "+path);
+            BitmapImage bi = null;
+            Uri uri = new Uri(path);
+            bi = new BitmapImage(uri);
+            return bi;
+        }
+
+        public static void print(string line)
+        {
+            Console.Out.WriteLine(line);
+        }
+
+        public static void print(object var)
+        {
+            Console.Out.WriteLine(var == null ? "null" : var.ToString());
         }
     }
 
@@ -137,29 +158,54 @@ namespace ArkMapPlot
 
         public void loadMembers(JArray members)
         {
-
+            int len = members.Count;
+            MainWindow.print("arrCnt: " + len);
+            JObject obj;
+            for (int i = 0; i < len; i++)
+            {
+                obj = members[i] as JObject;
+                if (obj != null)
+                {
+                    MemberData data = new MemberData(className, obj);
+                    this.members.Add(data);
+                }
+            }
         }
     }
 
     public class MemberData
     {
         public readonly string className;
-        public readonly MemberInfo data;
-        public virtual string displayName { get { return data.displayName; } }
+        public readonly string displayName;
+        public readonly float lat;
+        public readonly float lon;
+        public readonly float x, y, z;
+        public readonly bool isFemale = false;
+        public readonly int baseLevels;
+        public readonly int health;
+        public readonly int stam;
+        public readonly int oxy;
+        public readonly int food;
+        public readonly int damage;
+        public readonly int speed;
+
         public MemberData(string className)
         {
             this.className = className;
-            data = new MemberInfoDino();
+            this.displayName = this.GetHashCode().ToString();
         }
-    }
 
-    public class MemberInfo
-    {        
-        public virtual string displayName { get { return GetHashCode().ToString(); } }
-    }
-
-    public class MemberInfoDino : MemberInfo
-    {
-
+        public MemberData(string className, JObject obj)
+        {
+            this.className = className;
+            this.displayName = this.GetHashCode().ToString();
+            this.lat = (obj["latitude"] as JValue).Value<float>();
+            this.lon = (obj["longitude"] as JValue).Value<float>();
+            this.x = (obj["x"] as JValue).Value<float>();
+            this.y = (obj["y"] as JValue).Value<float>();
+            this.z = (obj["z"] as JValue).Value<float>();
+            this.isFemale = (obj["female"] as JValue).Value<bool>();
+            this.baseLevels = (obj["baseLevels"] as JValue).Value<int>();
+        }
     }
 }

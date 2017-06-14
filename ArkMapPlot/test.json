@@ -1,0 +1,23 @@
+{
+"array":
+	[
+		{
+			"latitude":10,
+			"longitude":11,
+			"x":1,
+			"y":2,
+			"z":3,
+			"female":true,
+			"baseLevels":12
+		},
+		{
+			"latitude":13,
+			"longitude":14,
+			"x":4,
+			"y":5,
+			"z":6,
+			"female":false,
+			"baseLevels":15
+		}
+	]
+}
