@@ -92,10 +92,17 @@ namespace ArkMapPlot
             ClassList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) 
             {
                 updateMemberList((string)ClassList.SelectedItem);
+                MemberInfo.SelectedItem = null;
+                updateMemberData(null);
                 print("Selected class: " + ClassList.SelectedItem);
             };
             MemberList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
             {
+                string cName = (string)ClassList.SelectedItem;
+                string mName = (string)MemberList.SelectedItem;
+                ClassData cd = classData[displayToClass[cName]];
+                MemberData md = cd.members.Find(m => m.displayName == mName);
+                updateMemberData(md);
                 print("Selected member: " + MemberList.SelectedItem);
             };
 
@@ -121,6 +128,17 @@ namespace ArkMapPlot
             {
                 MemberList.Items.Add(member.displayName);
             }
+        }
+
+        private void updateMemberData(MemberData data)
+        {
+            if (data == null)
+            {
+                MemberInfo.Items.Clear();
+                MemberList.SelectedItem = null;
+                return;
+            }
+            data.updateDisplay(MemberInfo);
         }
 
         private BitmapImage loadImage(string file)
@@ -206,6 +224,20 @@ namespace ArkMapPlot
             this.z = (obj["z"] as JValue).Value<float>();
             this.isFemale = (obj["female"] as JValue).Value<bool>();
             this.baseLevels = (obj["baseLevels"] as JValue).Value<int>();
+        }
+
+        public void updateDisplay(ListBox list)
+        {
+            ItemCollection c = list.Items;
+            c.Clear();
+            c.Add("id : "+displayName);
+            c.Add("lat: " + lat);
+            c.Add("lon: " + lon);
+            c.Add("x  : " + x);
+            c.Add("y  : " + y);
+            c.Add("z  : " + z);
+            c.Add("fem: " + isFemale);
+            c.Add("lev: " + baseLevels);
         }
     }
 }
