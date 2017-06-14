@@ -42,7 +42,6 @@ namespace ArkMapPlot
 
 
             ClassData data;
-            JObject obj;
             JArray arr;
             string className = string.Empty;
             string displayName = string.Empty;
@@ -63,14 +62,13 @@ namespace ArkMapPlot
                 displayNames[i] = classArray[i]["name"].Value<string>();
                 displayName = displayNames[i];
                 className = classNames[i];
-                fileName = className + ".json";
+                fileName = "dinoData/"+className + ".json";
                 if (File.Exists(fileName))
                 {
                     fileData = File.ReadAllText(fileName);
-                    print("fileData: " + fileData);
-                    obj = JObject.Parse(fileData);
-                    print(obj.Count);
-                    arr = obj["array"] as JArray;
+                    //print("fileData: " + fileData);
+                    arr = JArray.Parse(fileData);
+                    print(arr.Count);
                     data = new ClassData(className, displayName);
                     data.loadMembers(arr);
                     displayToClass.Add(displayName, className);
@@ -214,14 +212,30 @@ namespace ArkMapPlot
         public MemberData(string className, JObject obj)
         {
             this.className = className;
-            this.displayName = this.GetHashCode().ToString();
-            this.lat = (obj["latitude"] as JValue).Value<float>();
-            this.lon = (obj["longitude"] as JValue).Value<float>();
+            this.displayName = (obj["id"] as JValue).Value<string>();
+            this.lat = (obj["lat"] as JValue).Value<float>();
+            this.lon = (obj["lon"] as JValue).Value<float>();
             this.x = (obj["x"] as JValue).Value<float>();
             this.y = (obj["y"] as JValue).Value<float>();
             this.z = (obj["z"] as JValue).Value<float>();
-            this.isFemale = (obj["female"] as JValue).Value<bool>();
-            this.baseLevels = (obj["baseLevels"] as JValue).Value<int>();
+
+            JToken tok = obj["female"];
+            if (tok != null)
+            {
+                isFemale = tok.Value<bool>();
+            }
+
+            tok = obj["baseLevel"];
+            if (tok != null)
+            {
+                baseLevels = tok.Value<int>();
+            }
+            else
+            {
+                baseLevels = 0;
+                MainWindow.print("ERROR: could not find base level token in object: "+obj.ToString());
+                MainWindow.print("Class name: " + className + " :: " + displayName);
+            }
         }
 
         public void updateDisplay(ListBox list)
