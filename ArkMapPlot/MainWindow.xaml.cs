@@ -28,6 +28,8 @@ namespace ArkMapPlot
         private Dictionary<string, ClassData> classData = new Dictionary<string, ClassData>();
         private Dictionary<string, string> displayToClass = new Dictionary<string, string>();
 
+        private List<MemberData> displayedMembers = new List<MemberData>();
+
         public MainWindow()
         {
             loadData();
@@ -39,7 +41,6 @@ namespace ArkMapPlot
         {
             classData.Clear();
             displayToClass.Clear();
-
 
             ClassData data;
             JArray arr;
@@ -93,16 +94,16 @@ namespace ArkMapPlot
                 updateMemberData(null);
                 print("Selected class: " + ClassList.SelectedItem);
             };
-            MemberList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
+            MemberData.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
             {
                 string cName = (string)ClassList.SelectedItem;
-                string mName = (string)MemberList.SelectedItem;
-                ClassData cd = classData[displayToClass[cName]];
-                MemberData md = cd.members.Find(m => m.displayName == mName);
-                updateMemberData(md);
-                print("Selected member: " + MemberList.SelectedItem);
+                MemberData member = (MemberData)MemberData.SelectedItem;
+                updateMemberData(member);
+                if (member != null)
+                {
+                    print("Selected member: " + member.DisplayName + " of class: " + cName);
+                }
             };
-
             loadMap(string.Empty);
         }
 
@@ -120,21 +121,19 @@ namespace ArkMapPlot
             string className = displayToClass[displayName];
             ClassData data = classData[className];
             print("Num of members: " + data.members.Count);
-            MemberList.Items.Clear();
-            foreach (MemberData member in data.members)
-            {
-                MemberList.Items.Add(member.displayName);
-            }
+            displayedMembers = data.members;
+            MemberData.ItemsSource = displayedMembers;
+            MemberData.Items.Refresh();
+            updateMemberData(null);
         }
 
         private void updateMemberData(MemberData data)
         {
-            if (data == null)
+            MemberInfoBlock.Text = string.Empty;
+            if (data != null)
             {
-                MemberList.SelectedItem = null;
-                return;
+                data.updateDisplay(MemberInfoBlock);
             }
-            data.updateDisplay(MemberInfoBlock);
         }
 
         private BitmapImage loadImage(string file)
@@ -173,7 +172,7 @@ namespace ArkMapPlot
         public void loadMembers(JArray members)
         {
             int len = members.Count;
-            MainWindow.print("arrCnt: " + len);
+            MainWindow.print("arrCnt: " + len+" for name: "+className);
             JObject obj;
             for (int i = 0; i < len; i++)
             {
@@ -189,19 +188,31 @@ namespace ArkMapPlot
 
     public class MemberData
     {
-        public readonly string className;
-        public readonly string displayName;
-        public readonly float lat;
-        public readonly float lon;
-        public readonly float x, y, z;
-        public readonly bool isFemale = false;
-        public readonly int baseLevels;
-        public readonly int health;
-        public readonly int stam;
-        public readonly int oxy;
-        public readonly int food;
-        public readonly int damage;
-        public readonly int speed;
+        private readonly string className;
+        private readonly string displayName;
+        private readonly float lat;
+        private readonly float lon;
+        private readonly float x, y, z;
+        private readonly bool isFemale = false;
+        private readonly int baseLevels;
+        private readonly int health;
+        private readonly int stam;
+        private readonly int oxy;
+        private readonly int food;
+        private readonly int weight;
+        private readonly int damage;
+        private readonly int speed;
+        
+        public string DisplayName { get { return displayName; } }
+        public int Level { get { return baseLevels; } }
+        public bool Female { get { return isFemale; } }
+        public int Health { get { return health; } }
+        public int Stamina { get { return stam; } }
+        public int Oxygen { get { return oxy; } }
+        public int Food { get { return food; } }
+        public int Damage { get { return damage; } }
+        public int Weight { get { return weight; } }
+        public int Speed { get { return speed; } }
 
         public MemberData(string className)
         {
@@ -236,6 +247,19 @@ namespace ArkMapPlot
                 MainWindow.print("ERROR: could not find base level token in object: "+obj.ToString());
                 MainWindow.print("Class name: " + className + " :: " + displayName);
             }
+
+            JObject wildLevels = obj["wildLevels"] as JObject;
+            if (wildLevels != null)
+            {
+                //MainWindow.print("wildObj: " + wildLevels.ToString());
+                health = wildLevels["health"]!=null ? wildLevels["health"].Value<int>() : 0;
+                stam = wildLevels["stamina"]!=null ? wildLevels["stamina"].Value<int>() : 0;
+                oxy = wildLevels["oxygen"]!=null ? wildLevels["oxygen"].Value<int>() : 0;
+                food = wildLevels["food"]!=null ? wildLevels["food"].Value<int>() : 0;
+                weight = wildLevels["weight"]!=null? wildLevels["weight"].Value<int>() : 0;
+                damage = wildLevels["melee"]!=null? wildLevels["melee"].Value<int>() : 0;
+                speed = wildLevels["speed"]!=null? wildLevels["speed"].Value<int>() : 0;
+            }
         }
 
         public void updateDisplay(ListBox list)
@@ -261,8 +285,6 @@ namespace ArkMapPlot
             data += "\nx  : " + x;
             data += "\ny  : " + y;
             data += "\nz  : " + z;
-            data += "\nfem: " + isFemale;
-            data += "\nlev: " + baseLevels;
             block.Text = data;
         }
     }
