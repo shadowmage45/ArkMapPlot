@@ -1,1 +1,6 @@
 https://www.codeproject.com/Articles/85603/A-WPF-custom-control-for-zooming-and-panning
+https://stackoverflow.com/questions/1679073/transforming-coordinates-from-an-image-control-to-the-image-source-in-wpf
+https://stackoverflow.com/questions/23670612/how-i-get-the-x-and-the-y-point-of-a-image-from-a-mouseevent
+https://stackoverflow.com/questions/4847734/wpf-image-tooltip
+https://stackoverflow.com/questions/1597681/wpf-how-to-show-an-image-source-bitmapsource-pixel-position
+http://www.nerdparadise.com/programming/csharpimageediting

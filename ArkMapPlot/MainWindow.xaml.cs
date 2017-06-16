@@ -69,7 +69,7 @@ namespace ArkMapPlot
                     fileData = File.ReadAllText(fileName);
                     //print("fileData: " + fileData);
                     arr = JArray.Parse(fileData);
-                    print(arr.Count);
+                    //print(arr.Count);
                     data = new ClassData(className, displayName);
                     data.loadMembers(arr);
                     displayToClass.Add(displayName, className);
@@ -77,7 +77,7 @@ namespace ArkMapPlot
                 }
                 else
                 {
-                    print("Did not locate any file for: " + fileName);
+                    //print("Did not locate any file for: " + fileName);
                 }
             }
         }
@@ -92,7 +92,7 @@ namespace ArkMapPlot
             {
                 updateMemberList((string)ClassList.SelectedItem);
                 updateMemberData(null);
-                print("Selected class: " + ClassList.SelectedItem);
+                //print("Selected class: " + ClassList.SelectedItem);
             };
             MemberData.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
             {
@@ -101,10 +101,22 @@ namespace ArkMapPlot
                 updateMemberData(member);
                 if (member != null)
                 {
-                    print("Selected member: " + member.DisplayName + " of class: " + cName);
+                    //print("Selected member: " + member.DisplayName + " of class: " + cName);
                 }
+                MapImage.ToolTip = member.DisplayName;
+            };
+            MapImage.MouseMove += delegate (object sender, MouseEventArgs e) 
+            {
+                System.Windows.Point pt = e.GetPosition(MapImage);
+                print("Move-Pixels: " + pt);
+            };
+            MapImage.MouseLeftButtonDown += delegate (object sender, MouseButtonEventArgs e)
+            {
+                System.Windows.Point pt = e.GetPosition(MapImage);
+                print("Clck-Pixels: " + pt);
             };
             loadMap(string.Empty);
+            MapImage.ToolTip = "Foobar";
         }
 
         private void loadMap(string configFileName)
@@ -117,10 +129,10 @@ namespace ArkMapPlot
 
         private void updateMemberList(string displayName)
         {
-            print("Selected: " + displayName);
+            //print("Selected: " + displayName);
             string className = displayToClass[displayName];
             ClassData data = classData[className];
-            print("Num of members: " + data.members.Count);
+            //print("Num of members: " + data.members.Count);
             displayedMembers = data.members;
             MemberData.ItemsSource = displayedMembers;
             MemberData.Items.Refresh();
@@ -136,14 +148,24 @@ namespace ArkMapPlot
             }
         }
 
+        private void updateMapPins(ClassData data)
+        {
+
+        }
+
         private BitmapImage loadImage(string file)
         {
             string path = System.IO.Path.GetFullPath(file);
-            print("File to load: " + file+ " :: "+path);
+            //print("File to load: " + file+ " :: "+path);
             BitmapImage bi = null;
             Uri uri = new Uri(path);
             bi = new BitmapImage(uri);
             return bi;
+        }
+
+        private void updateMapTooltip(int pX, int pY)
+        {
+
         }
 
         public static void print(string line)
@@ -172,7 +194,7 @@ namespace ArkMapPlot
         public void loadMembers(JArray members)
         {
             int len = members.Count;
-            MainWindow.print("arrCnt: " + len+" for name: "+className);
+            //MainWindow.print("arrCnt: " + len+" for name: "+className);
             JObject obj;
             for (int i = 0; i < len; i++)
             {
@@ -244,8 +266,8 @@ namespace ArkMapPlot
             else
             {
                 baseLevels = 0;
-                MainWindow.print("ERROR: could not find base level token in object: "+obj.ToString());
-                MainWindow.print("Class name: " + className + " :: " + displayName);
+                //MainWindow.print("ERROR: could not find base level token in object: "+obj.ToString());
+                //MainWindow.print("Class name: " + className + " :: " + displayName);
             }
 
             JObject wildLevels = obj["wildLevels"] as JObject;

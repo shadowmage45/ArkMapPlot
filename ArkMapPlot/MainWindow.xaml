@@ -27,7 +27,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <GridSplitter Grid.Row="1" Height="5" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-            <Image Grid.Column="0" Grid.Row="0" x:Name ="MapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,9,9,9" Height="Auto" Width="Auto"/>
+            <Viewbox x:Name ="ImageBox" Grid.Column="0" Grid.Row="0" Stretch="{Binding ImageStretch}">
+                <Image x:Name ="MapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,9,9,9" Height="Auto" Width="Auto" Stretch="None"/>
+            </Viewbox>
             <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="9,9,9,9" Width="Auto" Height="100">
                 <TextBlock x:Name="MemberInfoBlock" TextWrapping="Wrap"></TextBlock>
             </ScrollViewer>
