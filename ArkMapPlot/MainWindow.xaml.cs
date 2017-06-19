@@ -189,7 +189,7 @@ namespace ArkMapPlot
             {
                 mData = data.members[i];
                 Image pin = new Image();
-                pin.IsHitTestVisible = false;
+                //pin.IsHitTestVisible = false;
                 if (mData == selectedMember) { continue; }
                 pin.Source = pinBlueImage;
                 x = (mData.Lon / lonMax) * width - 16;
@@ -198,12 +198,13 @@ namespace ArkMapPlot
                 Canvas.SetLeft(pin, x);
                 Canvas.SetTop(pin, y);
                 print("Added Pin at: "+x+","+y);
+                pin.ToolTip = "Level - "+mData.Level + " - lat/lon: "+mData.Lat+","+mData.Lon;
             }
             if (selectedMember != null)
             {
                 mData = selectedMember;
                 Image pin = new Image();
-                pin.IsHitTestVisible = false;
+                //pin.IsHitTestVisible = false;
                 pin.Source = pinRedImage;
                 x = (mData.Lon / lonMax) * width - 16;
                 y = (mData.Lat / latMax) * height - 16;
@@ -211,6 +212,7 @@ namespace ArkMapPlot
                 Canvas.SetLeft(pin, x);
                 Canvas.SetTop(pin, y);
                 print("Added Selected Member Pin at: " + x + "," + y);
+                pin.ToolTip = "Level - " + mData.Level + " - lat/lon: " + mData.Lat + "," + mData.Lon;
             }
         }
 
