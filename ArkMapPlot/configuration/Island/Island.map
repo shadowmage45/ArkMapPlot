@@ -1,0 +1,13 @@
+mapName = The Island
+dataFolder = configuration/Island/dinoData
+mapImage = configuration/Island/ark-map.png
+imageWidth = 1430
+imageHeight = 1430
+startLat = 0
+startLon = 0
+endLat = 0
+endLon = 0
+startX = -40000
+startY = -40000
+endX = 40000
+endY = 40000

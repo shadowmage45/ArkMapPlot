@@ -30,12 +30,6 @@
                 <Canvas x:Name ="MapCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto" >
                     <Image Canvas.Top="0" Canvas.Left="0" x:Name ="MapImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto" Stretch="None"/>
                 </Canvas>
-                <!--<Viewbox x:Name ="ImageBox" Grid.Column="0" Grid.Row="0" Stretch="{Binding ImageStretch}">
-                        
-            <ScrollViewer  HorizontalContentAlignment="Stretch" HorizontalScrollBarVisibility="Visible">
-                
-            </ScrollViewer>
-                    </Viewbox>-->
             </local:ZoomBorder>
             <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="9,0,9,9" Width="Auto" Height="100">
                 <TextBlock x:Name="MemberInfoBlock" TextWrapping="Wrap"></TextBlock>

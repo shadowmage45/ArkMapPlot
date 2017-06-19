@@ -28,7 +28,14 @@ namespace ArkMapPlot
 
         private List<MemberData> displayedMembers = new List<MemberData>();
         private MemberData selectedMember = null;
-        private Dictionary<MemberData, Image> pins = new Dictionary<ArkMapPlot.MemberData, Image>();
+
+        private string mapImagePath;
+        private int mapImageWidth;
+        private int mapImageHeight;
+        private float mapStartLon;
+        private float mapStartLat;
+        private float mapEndLon;
+        private float mapEndLat;
 
         public static string pinRedPath = "pin_red.png";
         public static string pinBluePath = "pin_blue.png";
@@ -38,18 +45,11 @@ namespace ArkMapPlot
 
         public MainWindow()
         {
-            StreamWriter sw = new StreamWriter(new FileStream(logFile, FileMode.OpenOrCreate));
-            System.Console.SetOut(sw);
-            try
-            {
-                loadData();
-                InitializeComponent();
-                populateWindow();
-            }
-            catch (Exception e)
-            {
-                print(e.StackTrace);
-            }
+            //StreamWriter sw = new StreamWriter(new FileStream(logFile, FileMode.OpenOrCreate));
+            //System.Console.SetOut(sw);
+            loadData();
+            InitializeComponent();
+            populateWindow();
         }
 
         private void loadData()
@@ -95,14 +95,13 @@ namespace ArkMapPlot
                     //print("Did not locate any file for: " + fileName);
                 }
             }
-
-            pinRedImage = loadImage(pinRedPath);
-            pinBlueImage = loadImage(pinBluePath);
         }
 
         private void populateWindow()
         {
-            foreach(string name in displayToClass.Keys)
+            pinRedImage = loadImage(pinRedPath);
+            pinBlueImage = loadImage(pinBluePath);
+            foreach (string name in displayToClass.Keys)
             {
                 ClassList.Items.Add(name);
             }
@@ -226,11 +225,6 @@ namespace ArkMapPlot
             return bi;
         }
 
-        private void updateMapTooltip(int pX, int pY)
-        {
-
-        }
-
         public static void print(string line)
         {
             Console.Out.WriteLine(line);
@@ -242,6 +236,54 @@ namespace ArkMapPlot
             Console.Out.WriteLine(var == null ? "null" : var.ToString());
             Console.Out.Flush();
         }
+    }
+
+    public class MapConfiguration
+    {
+        public readonly string mapName;
+        public readonly string dataFolderPath;
+        public readonly string mapImagePath;
+        public readonly float imageWidth;
+        public readonly float imageHeight;
+        public readonly float imageStartX;
+        public readonly float imageStartY;
+        public readonly float imageEndX;
+        public readonly float imageEndY;
+        public readonly float imageStartLat;
+        public readonly float imageStartLon;
+        public readonly float imageEndLat;
+        public readonly float imageEndLon;
+
+        public MapConfiguration(string configFilePath)
+        {
+            string[] lines = File.ReadAllLines(configFilePath);
+            string line;
+            string[] split;
+            string key, value;
+            int len = lines.Length;
+            for (int i = 0; i < len; i++)
+            {
+                line = lines[1];
+                split = line.Split('=');
+                if (split.Length <= 1) { continue; }
+                key = split[0].Trim().ToLower();
+                value = split[1].Trim();
+                if (key.Equals("mapName")) { mapName = value; }
+                else if (key.Equals("dataFolder")) { dataFolderPath = value; }
+                else if (key.Equals("mapImage")) { mapImagePath = value; }
+                else if (key.Equals("imageWidth")) { imageWidth = int.Parse(value); }
+                else if (key.Equals("imageHeight")) { imageHeight = int.Parse(value); }
+                else if (key.Equals("startX")) { imageStartX = float.Parse(value); }
+                else if (key.Equals("startY")) { imageStartY = float.Parse(value); }
+                else if (key.Equals("endX")) { imageEndX = float.Parse(value); }
+                else if (key.Equals("endY")) { imageEndY = float.Parse(value); }
+                else if (key.Equals("startLat")) { imageStartLat = float.Parse(value); }
+                else if (key.Equals("startLon")) { imageStartLon = float.Parse(value); }
+                else if (key.Equals("endLat")) { imageEndLat = float.Parse(value); }
+                else if (key.Equals("endLon")) { imageEndLon = float.Parse(value); }
+            }
+        }
+
     }
 
     public class ClassData
