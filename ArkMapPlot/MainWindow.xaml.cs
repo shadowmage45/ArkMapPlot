@@ -23,19 +23,14 @@ namespace ArkMapPlot
     public partial class MainWindow : Window
     {
 
+        private List<MapConfiguration> mapConfigurations = new List<MapConfiguration>();
+        private MapConfiguration currentConfiguration = null;
+
         private Dictionary<string, ClassData> classData = new Dictionary<string, ClassData>();
         private Dictionary<string, string> displayToClass = new Dictionary<string, string>();
 
         private List<MemberData> displayedMembers = new List<MemberData>();
         private MemberData selectedMember = null;
-
-        private string mapImagePath;
-        private int mapImageWidth;
-        private int mapImageHeight;
-        private float mapStartLon;
-        private float mapStartLat;
-        private float mapEndLon;
-        private float mapEndLat;
 
         public static string pinRedPath = "pin_red.png";
         public static string pinBluePath = "pin_blue.png";
@@ -47,12 +42,21 @@ namespace ArkMapPlot
         {
             //StreamWriter sw = new StreamWriter(new FileStream(logFile, FileMode.OpenOrCreate));
             //System.Console.SetOut(sw);
-            loadData();
+            loadMapConfigs();
             InitializeComponent();
             populateWindow();
         }
 
-        private void loadData()
+        private void loadMapConfigs()
+        {
+            print("Path: "+System.IO.Path.GetFullPath("/"));
+            print("Startup: " + System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            string[] files = Directory.GetFiles("/.");
+            foreach (string f in files) { print(f); }
+            loadDinoData();
+        }
+
+        private void loadDinoData()
         {
             classData.Clear();
             displayToClass.Clear();
@@ -268,19 +272,19 @@ namespace ArkMapPlot
                 if (split.Length <= 1) { continue; }
                 key = split[0].Trim().ToLower();
                 value = split[1].Trim();
-                if (key.Equals("mapName")) { mapName = value; }
-                else if (key.Equals("dataFolder")) { dataFolderPath = value; }
-                else if (key.Equals("mapImage")) { mapImagePath = value; }
-                else if (key.Equals("imageWidth")) { imageWidth = int.Parse(value); }
-                else if (key.Equals("imageHeight")) { imageHeight = int.Parse(value); }
-                else if (key.Equals("startX")) { imageStartX = float.Parse(value); }
-                else if (key.Equals("startY")) { imageStartY = float.Parse(value); }
-                else if (key.Equals("endX")) { imageEndX = float.Parse(value); }
-                else if (key.Equals("endY")) { imageEndY = float.Parse(value); }
-                else if (key.Equals("startLat")) { imageStartLat = float.Parse(value); }
-                else if (key.Equals("startLon")) { imageStartLon = float.Parse(value); }
-                else if (key.Equals("endLat")) { imageEndLat = float.Parse(value); }
-                else if (key.Equals("endLon")) { imageEndLon = float.Parse(value); }
+                if (key.Equals("mapname")) { mapName = value; }
+                else if (key.Equals("datafolder")) { dataFolderPath = value; }
+                else if (key.Equals("mapimage")) { mapImagePath = value; }
+                else if (key.Equals("imagewidth")) { imageWidth = int.Parse(value); }
+                else if (key.Equals("imageheight")) { imageHeight = int.Parse(value); }
+                else if (key.Equals("startx")) { imageStartX = float.Parse(value); }
+                else if (key.Equals("starty")) { imageStartY = float.Parse(value); }
+                else if (key.Equals("endx")) { imageEndX = float.Parse(value); }
+                else if (key.Equals("endy")) { imageEndY = float.Parse(value); }
+                else if (key.Equals("startlat")) { imageStartLat = float.Parse(value); }
+                else if (key.Equals("startlon")) { imageStartLon = float.Parse(value); }
+                else if (key.Equals("endlat")) { imageEndLat = float.Parse(value); }
+                else if (key.Equals("endlon")) { imageEndLon = float.Parse(value); }
             }
         }
 
