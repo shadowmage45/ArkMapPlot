@@ -49,10 +49,10 @@ namespace ArkMapPlot
 
         private void loadMapConfigs()
         {
-            print("Path: "+System.IO.Path.GetFullPath("/"));
-            print("Startup: " + System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            string[] files = Directory.GetFiles("/.");
-            foreach (string f in files) { print(f); }
+            //print("Path: "+System.IO.Path.GetFullPath("/"));
+            //print("Startup: " + System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            //string[] files = Directory.GetFiles("/.");
+            //foreach (string f in files) { print(f); }
             loadDinoData();
         }
 
