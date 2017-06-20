@@ -1,6 +1,6 @@
-mapName = The Island
-dataFolder = configuration/Island/dinoData
-mapImage = configuration/Island/ark-map.png
+mapName = Scorched Earth
+dataFolder = configuration/ScorchedEarth/dinoData
+mapImage = configuration/ScorchedEarth/ark-map-SE.png
 imageWidth = 1430
 imageHeight = 1430
 startLat = 0

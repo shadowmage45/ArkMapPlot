@@ -10,13 +10,26 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180" />
             <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="5" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" x:Name="ClassList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,9,9,9" Width="Auto" Height="Auto"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem Header="_Load Map" x:Name="LoadMapItem"/>
+                <MenuItem Header="_Quit" Click="AppExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Edit"></MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About"/>
+            </MenuItem>
+        </Menu>
+        <ListBox Grid.Column="0" x:Name="ClassList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9,24,9,9" Width="Auto" Height="Auto"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
-        <DataGrid Grid.Column="2" x:Name="MemberData" ItemsSource="{Binding displayedMembers}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="9,9,9,9">
+        <DataGrid Grid.Column="2" x:Name="MemberData" ItemsSource="{Binding displayedMembers}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="9,9,9,9" EnableColumnVirtualization="True" EnableRowVirtualization="True">
         </DataGrid>
         <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch"/>
         <Grid Grid.Column="4">

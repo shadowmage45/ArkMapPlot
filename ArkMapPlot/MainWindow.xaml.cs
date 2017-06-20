@@ -45,15 +45,30 @@ namespace ArkMapPlot
             loadMapConfigs();
             InitializeComponent();
             populateWindow();
+            loadDinoData();
         }
 
         private void loadMapConfigs()
         {
-            //print("Path: "+System.IO.Path.GetFullPath("/"));
-            //print("Startup: " + System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            //string[] files = Directory.GetFiles("/.");
-            //foreach (string f in files) { print(f); }
-            loadDinoData();
+            string localPath = "configuration/";
+            string fullPath = System.IO.Path.GetFullPath(localPath);
+            string ext;
+            print("local: " + localPath);
+            print("full : " + fullPath);
+            string[] files = Directory.GetFiles(fullPath, "*.*", SearchOption.AllDirectories);
+            int len = files.Length;
+            for (int i = 0; i < len; i++)
+            {
+                ext = System.IO.Path.GetExtension(files[i]);
+                if (ext.ToLower().Equals(".map"))
+                {
+                    print("Found map file: " + files[i]);
+                    MapConfiguration mc = new MapConfiguration(files[i]);
+                    mapConfigurations.Add(mc);
+                }
+            }
+            currentConfiguration = mapConfigurations[0];//TODO reload last configuration, or default to first/Island
+            print("set configuration to: " + currentConfiguration.mapName);
         }
 
         private void loadDinoData()
@@ -82,7 +97,8 @@ namespace ArkMapPlot
                 displayNames[i] = classArray[i]["name"].Value<string>();
                 displayName = displayNames[i];
                 className = classNames[i];
-                fileName = "dinoData/"+className + ".json";
+                fileName = currentConfiguration.dataFolderPath+"/"+className + ".json";
+                print("Loading dino data from: " + fileName);
                 if (File.Exists(fileName))
                 {
                     fileData = File.ReadAllText(fileName);
@@ -99,18 +115,52 @@ namespace ArkMapPlot
                     //print("Did not locate any file for: " + fileName);
                 }
             }
+            ClassList.SelectedItem = null;
+            ClassList.Items.Clear();
+            foreach (string name in displayToClass.Keys)
+            {
+                ClassList.Items.Add(name);
+            }
+            ClassList.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription("", System.ComponentModel.ListSortDirection.Ascending));
         }
 
         private void populateWindow()
         {
             pinRedImage = loadImage(pinRedPath);
             pinBlueImage = loadImage(pinBluePath);
-            foreach (string name in displayToClass.Keys)
+            MapImage.Source = loadImage(currentConfiguration.mapImagePath);
+
+            MenuItem mapList = LoadMapItem;
+            int len = mapConfigurations.Count;
+            for (int i = 0; i < len; i++)
             {
-                ClassList.Items.Add(name);
+                MenuItem item = new MenuItem();
+                item.Header = mapConfigurations[i].mapName;
+                mapList.Items.Add(item);
+                int index = i;
+                item.Click += delegate (object sender, RoutedEventArgs a) 
+                {
+                    print("Loading map at index: " + index);                   
+                    currentConfiguration = mapConfigurations[index];
+                    MapImage.Source = loadImage(currentConfiguration.mapImagePath);
+                    loadDinoData();
+                    ClassList.SelectedItem = null;
+                    MemberData.SelectedItem = null;
+                    MemberInfoBlock.Text = string.Empty;
+                    MemberData.ItemsSource = null;
+                    MemberData.Items.Refresh();
+                };
             }
             ClassList.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e) 
             {
+                if (ClassList.SelectedItem == null)
+                {
+                    updateMemberList((string)ClassList.SelectedItem);
+                    updateMemberData(null);
+                    selectedMember = null;
+                    updateMapPins(null);
+                    return;
+                }
                 updateMemberList((string)ClassList.SelectedItem);
                 updateMemberData(null);
                 string cName = displayToClass[(string)ClassList.SelectedItem];
@@ -127,42 +177,19 @@ namespace ArkMapPlot
                 updateMapPins(classData[displayToClass[cName]]);
                 print("Selected member: " + member);
             };
-            //MapImage.MouseMove += delegate (object sender, MouseEventArgs e)
-            //{   
-            //    System.Windows.Point pt = e.GetPosition(MapImage);
-            //    Point pt1 = e.GetPosition(MapCanvas);
-            //};
-            //MapImage.MouseLeftButtonDown += delegate (object sender, MouseButtonEventArgs e)
-            //{
-            //    System.Windows.Point pt = e.GetPosition(MapImage);
-            //    print("Clck-Pixels: " + pt);
-            //};
-            //MapImage.MouseWheel += delegate (object sender, MouseWheelEventArgs e)
-            //{
-            //    print("Wheel: " + e.Delta);
-            //    //TransformGroup tg = MapCanvas.tra
-            //    //var rt = MapCanvas.RenderTransform;
-            //    //((ScaleTransform)rt).ScaleX += e.Delta;
-            //    //((ScaleTransform)rt).ScaleY += e.Delta;
-            //    //MapCanvas.RenderTransform = rt;
-            //};
-            loadMap(string.Empty);
-        }
-
-        private void loadMap(string configFileName)
-        {
-            //TODO load values from map config setup
-            string mapName = string.Empty;
-            string mapImageFileName = "ark-map.png";
-            MapImage.Source = loadImage(mapImageFileName);
         }
 
         private void updateMemberList(string displayName)
         {
-            //print("Selected: " + displayName);
+            if (string.IsNullOrEmpty(displayName))
+            {
+                updateMemberData(null);
+                return;
+            }
+            print("Updating for display name: " + displayName);
+            foreach (string n in displayToClass.Keys) { print("KEY: " + n); }
             string className = displayToClass[displayName];
             ClassData data = classData[className];
-            //print("Num of members: " + data.members.Count);
             displayedMembers = data.members;
             MemberData.ItemsSource = displayedMembers;
             MemberData.Items.Refresh();
@@ -181,13 +208,18 @@ namespace ArkMapPlot
         private void updateMapPins(ClassData data)
         {
             MapCanvas.Children.RemoveRange(1, MapCanvas.Children.Count - 1);
+            if (data == null) { return; }
             int len = data.members.Count;
             MemberData mData;
             float x, y;
-            float width = 1430;
-            float height = 1430;
-            float latMax = 100;
-            float lonMax = 100;
+            float width = currentConfiguration.imageWidth;
+            float height = currentConfiguration.imageHeight;
+            float latMin = currentConfiguration.imageStartLat;
+            float lonMin = currentConfiguration.imageStartLon;
+            float latMax = currentConfiguration.imageEndLat;
+            float lonMax = currentConfiguration.imageEndLon;
+            float lonRng = lonMax - lonMin;
+            float latRng = latMax - latMin;
             for (int i = 0; i < len; i++)
             {
                 mData = data.members[i];
@@ -195,12 +227,12 @@ namespace ArkMapPlot
                 //pin.IsHitTestVisible = false;
                 if (mData == selectedMember) { continue; }
                 pin.Source = pinBlueImage;
-                x = (mData.Lon / lonMax) * width - 16;
-                y = (mData.Lat / latMax) * height - 16;
+
+                x = ((mData.Lon-latMin) / lonRng) * width - 16;
+                y = ((mData.Lat-lonMin) / latRng) * height - 16;
                 MapCanvas.Children.Add(pin);
                 Canvas.SetLeft(pin, x);
                 Canvas.SetTop(pin, y);
-                print("Added Pin at: "+x+","+y);
                 pin.ToolTip = "Level - "+mData.Level + " - lat/lon: "+mData.Lat+","+mData.Lon;
             }
             if (selectedMember != null)
@@ -214,19 +246,23 @@ namespace ArkMapPlot
                 MapCanvas.Children.Add(pin);                
                 Canvas.SetLeft(pin, x);
                 Canvas.SetTop(pin, y);
-                print("Added Selected Member Pin at: " + x + "," + y);
                 pin.ToolTip = "Level - " + mData.Level + " - lat/lon: " + mData.Lat + "," + mData.Lon;
             }
         }
 
         private BitmapImage loadImage(string file)
         {
-            string path = System.IO.Path.GetFullPath(file);
-            //print("File to load: " + file+ " :: "+path);
-            BitmapImage bi = null;
-            Uri uri = new Uri(path);
-            bi = new BitmapImage(uri);
-            return bi;
+            Uri uri = new Uri(System.IO.Path.GetFullPath(file));
+            if (uri == null)
+            {
+                throw new NullReferenceException("Could not construct URI for file/path: " + file + " :: " + System.IO.Path.GetFullPath(file));
+            }
+            return new BitmapImage(uri);
+        }
+
+        public void AppExit_Click(object sender, RoutedEventArgs args)
+        {
+            Application.Current.Shutdown();
         }
 
         public static void print(string line)
@@ -267,7 +303,7 @@ namespace ArkMapPlot
             int len = lines.Length;
             for (int i = 0; i < len; i++)
             {
-                line = lines[1];
+                line = lines[i];
                 split = line.Split('=');
                 if (split.Length <= 1) { continue; }
                 key = split[0].Trim().ToLower();
