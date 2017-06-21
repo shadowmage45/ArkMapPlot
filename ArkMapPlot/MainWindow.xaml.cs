@@ -32,8 +32,8 @@ namespace ArkMapPlot
         private List<MemberData> displayedMembers = new List<MemberData>();
         private MemberData selectedMember = null;
 
-        public static string pinRedPath = "pin_red.png";
-        public static string pinBluePath = "pin_blue.png";
+        public static string pinRedPath = "configuration/pin_red.png";
+        public static string pinBluePath = "configuration/pin_blue.png";
         public static BitmapImage pinRedImage;
         public static BitmapImage pinBlueImage;
         public static string logFile = "log.txt";
@@ -84,7 +84,7 @@ namespace ArkMapPlot
             string fileData = null;
             string[] classNames;
             string[] displayNames;
-            string classMapName = "ark_data_en.json";
+            string classMapName = "configuration/ark_data_en.json";
             string classMapData = File.ReadAllText(classMapName);
             JObject classMapJson = JObject.Parse(classMapData);
             JArray classArray = (JArray)classMapJson["creatures"];
