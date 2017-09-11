@@ -98,21 +98,15 @@ namespace ArkMapPlot
                 displayName = displayNames[i];
                 className = classNames[i];
                 fileName = currentConfiguration.dataFolderPath+"/"+className + ".json";
-                print("Loading dino data from: " + fileName);
+                //print("Loading dino data from: " + fileName);
                 if (File.Exists(fileName))
                 {
                     fileData = File.ReadAllText(fileName);
-                    //print("fileData: " + fileData);
                     arr = JArray.Parse(fileData);
-                    //print(arr.Count);
                     data = new ClassData(className, displayName);
                     data.loadMembers(arr);
                     displayToClass.Add(displayName, className);
                     classData.Add(className, data);
-                }
-                else
-                {
-                    //print("Did not locate any file for: " + fileName);
                 }
             }
             ClassList.SelectedItem = null;
@@ -140,7 +134,6 @@ namespace ArkMapPlot
                 int index = i;
                 item.Click += delegate (object sender, RoutedEventArgs a) 
                 {
-                    print("Loading map at index: " + index);                   
                     currentConfiguration = mapConfigurations[index];
                     MapImage.Source = loadImage(currentConfiguration.mapImagePath);
                     loadDinoData();
@@ -165,8 +158,7 @@ namespace ArkMapPlot
                 updateMemberData(null);
                 string cName = displayToClass[(string)ClassList.SelectedItem];
                 selectedMember = null;
-                updateMapPins(classData[cName]);
-                print("Selected class: " + ClassList.SelectedItem);
+                updateMapPins(string.IsNullOrEmpty(cName)? null : classData[cName]);
             };
             MemberData.SelectionChanged += delegate (object sender, SelectionChangedEventArgs e)
             {
@@ -174,8 +166,23 @@ namespace ArkMapPlot
                 MemberData member = (MemberData)MemberData.SelectedItem;
                 selectedMember = member;
                 updateMemberData(member);
-                updateMapPins(classData[displayToClass[cName]]);
-                print("Selected member: " + member);
+                if (!string.IsNullOrEmpty(cName))
+                {
+                    updateMapPins(classData[displayToClass[cName]]);
+                }
+                else
+                {
+                    updateMapPins(null);
+                }
+            };
+            ReloadMapItems.Click += delegate (object sender, RoutedEventArgs e)
+            {
+                loadDinoData();
+                ClassList.SelectedItem = null;
+                MemberData.SelectedItem = null;
+                MemberInfoBlock.Text = string.Empty;
+                MemberData.ItemsSource = null;
+                MemberData.Items.Refresh();
             };
         }
 
@@ -186,8 +193,6 @@ namespace ArkMapPlot
                 updateMemberData(null);
                 return;
             }
-            print("Updating for display name: " + displayName);
-            foreach (string n in displayToClass.Keys) { print("KEY: " + n); }
             string className = displayToClass[displayName];
             ClassData data = classData[className];
             displayedMembers = data.members;

@@ -22,7 +22,9 @@
                 <MenuItem Header="_Load Map" x:Name="LoadMapItem"/>
                 <MenuItem Header="_Quit" Click="AppExit_Click"/>
             </MenuItem>
-            <MenuItem Header="_Edit"></MenuItem>
+            <MenuItem Header="_Edit">
+                <MenuItem Header="_Reload Map" x:Name="ReloadMapItems"/>
+            </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About"/>
             </MenuItem>
