@@ -402,11 +402,12 @@ namespace ArkMapPlot
         {
             this.className = className;
             this.displayName = (obj["id"] as JValue).Value<string>();
-            this.lat = (obj["lat"] as JValue).Value<float>();
-            this.lon = (obj["lon"] as JValue).Value<float>();
-            this.x = (obj["x"] as JValue).Value<float>();
-            this.y = (obj["y"] as JValue).Value<float>();
-            this.z = (obj["z"] as JValue).Value<float>();
+            JObject loc = obj["location"] as JObject;
+            this.lat = (loc["lat"] as JValue).Value<float>();
+            this.lon = (loc["lon"] as JValue).Value<float>();
+            this.x = (loc["x"] as JValue).Value<float>();
+            this.y = (loc["y"] as JValue).Value<float>();
+            this.z = (loc["z"] as JValue).Value<float>();
 
             JToken tok = obj["female"];
             if (tok != null)
