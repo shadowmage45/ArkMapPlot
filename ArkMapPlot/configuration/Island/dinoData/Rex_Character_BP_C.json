@@ -1,1 +1,938 @@
-[{"x":-227529.328125,"y":148138.765625,"z":-4955.85302734375,"lat":68.5,"lon":21.6,"id":1475450497676762242,"color0":27,"color1":34,"color3":35,"color5":33,"baseLevel":96,"wildLevels":{"health":14,"stamina":19,"oxygen":15,"food":15,"weight":13,"melee":6,"speed":13}},{"x":25888.2421875,"y":49243.16796875,"z":-1316.1209716796875,"lat":56.2,"lon":53.2,"id":911239855379226275,"color0":35,"color1":35,"color3":27,"color5":33,"baseLevel":60,"wildLevels":{"health":10,"stamina":10,"oxygen":8,"food":5,"weight":8,"melee":8,"speed":10}},{"x":28606.71484375,"y":49015.44140625,"z":-2243.171142578125,"lat":56.1,"lon":53.6,"id":1605290090488850908,"color0":20,"color1":33,"color3":13,"color5":36,"baseLevel":28,"wildLevels":{"health":4,"stamina":5,"oxygen":5,"food":3,"weight":2,"melee":3,"speed":5}},{"x":97215.265625,"y":-113562.59375,"z":5816.90380859375,"lat":35.8,"lon":62.2,"id":376131168393440756,"female":true,"color0":22,"color1":27,"color3":22,"color5":14,"baseLevel":8,"wildLevels":{"oxygen":1,"food":3,"weight":2,"melee":1}},{"x":155949.859375,"y":120005.2578125,"z":-14294.6337890625,"lat":65.0,"lon":69.5,"id":1446468711408257733,"color0":27,"color1":13,"color3":33,"color5":22,"baseLevel":32,"wildLevels":{"health":3,"stamina":4,"oxygen":5,"food":4,"weight":5,"melee":6,"speed":4}},{"x":110843.2578125,"y":193534.421875,"z":-11586.072265625,"lat":74.2,"lon":63.9,"id":1795117333122464701,"female":true,"color0":27,"color1":34,"color3":20,"color5":22,"baseLevel":64,"wildLevels":{"health":14,"stamina":5,"oxygen":11,"food":10,"weight":10,"melee":6,"speed":7}},{"x":-261718.4375,"y":-79846.796875,"z":-14298.751953125,"lat":40.0,"lon":17.3,"id":922054419899286562,"female":true,"color0":27,"color1":35,"color3":34,"color5":20,"baseLevel":44,"wildLevels":{"health":7,"stamina":4,"oxygen":6,"food":6,"weight":7,"melee":11,"speed":2}},{"x":101534.2109375,"y":88013.125,"z":-12828.2685546875,"lat":61.0,"lon":62.7,"id":1280468521586089859,"female":true,"color0":33,"color1":20,"color3":22,"color5":13,"baseLevel":20,"wildLevels":{"health":3,"stamina":3,"oxygen":3,"food":4,"weight":2,"melee":1,"speed":3}},{"x":88907.734375,"y":209684.140625,"z":-14322.3408203125,"lat":76.2,"lon":61.1,"id":1262612048982402777,"color0":35,"color1":35,"color3":14,"color5":33,"baseLevel":4,"wildLevels":{"stamina":1,"weight":1,"speed":1}},{"x":247272.59375,"y":-133287.8125,"z":15015.73046875,"lat":33.3,"lon":80.9,"id":2057512952280524018,"color0":36,"color1":33,"color3":34,"color5":35,"baseLevel":36,"wildLevels":{"health":6,"stamina":4,"oxygen":4,"food":7,"weight":5,"melee":6,"speed":3}},{"x":126065.1328125,"y":54588.64453125,"z":-11695.6865234375,"lat":56.8,"lon":65.8,"id":1966940025027443302,"color0":36,"color1":22,"color3":34,"color5":20,"baseLevel":68,"wildLevels":{"health":18,"stamina":8,"oxygen":9,"food":7,"weight":7,"melee":8,"speed":10}},{"x":-210261.109375,"y":-921.666015625,"z":-7185.314453125,"lat":49.9,"lon":23.7,"id":1177892397367725749,"color0":20,"color1":13,"color3":35,"color5":27,"baseLevel":4,"wildLevels":{"oxygen":1,"food":1,"speed":1}},{"x":-129109.1796875,"y":-37164.94921875,"z":8828.0400390625,"lat":45.4,"lon":33.9,"id":961572435593598243,"female":true,"color0":33,"color1":33,"color3":24,"color5":34,"baseLevel":8,"wildLevels":{"stamina":1,"oxygen":1,"weight":1,"melee":3,"speed":1}},{"x":-194414.640625,"y":-10455.7265625,"z":-8017.99609375,"lat":48.7,"lon":25.7,"id":477126989294688677,"color0":20,"color1":24,"color3":13,"color5":33,"baseLevel":20,"wildLevels":{"health":3,"stamina":2,"oxygen":1,"food":4,"weight":3,"melee":3,"speed":3}},{"x":26775.8125,"y":-84692.8828125,"z":-2444.423583984375,"lat":39.4,"lon":53.3,"id":21864299953791484,"color0":20,"color1":13,"color3":22,"color5":33,"baseLevel":12,"wildLevels":{"health":3,"stamina":1,"oxygen":1,"food":2,"weight":3,"melee":1}},{"x":109320.4765625,"y":200259.40625,"z":-11816.720703125,"lat":75.0,"lon":63.7,"id":1497614925304463314,"female":true,"color0":24,"color1":33,"color3":27,"color5":36,"baseLevel":12,"wildLevels":{"health":4,"stamina":2,"weight":3,"melee":1,"speed":1}},{"x":176755.703125,"y":-33811.90625,"z":-9648.1220703125,"lat":45.8,"lon":72.1,"id":2053466659601986480,"color0":35,"color1":33,"color3":34,"color5":24,"baseLevel":28,"wildLevels":{"health":2,"stamina":4,"oxygen":4,"food":5,"weight":4,"melee":3,"speed":5}},{"x":-175814.671875,"y":-45758.3984375,"z":-2418.7783203125,"lat":44.3,"lon":28.0,"id":1661356722482059085,"female":true,"color0":20,"color1":13,"color3":27,"color5":36,"baseLevel":36,"wildLevels":{"health":5,"stamina":2,"oxygen":5,"food":4,"weight":4,"melee":8,"speed":7}},{"x":-128937.9609375,"y":-99950.984375,"z":1113.642578125,"lat":37.5,"lon":33.9,"id":1365835897339794951,"female":true,"color0":14,"color1":36,"color3":13,"color5":35,"baseLevel":16,"wildLevels":{"health":2,"stamina":3,"oxygen":2,"food":1,"weight":2,"melee":3,"speed":2}},{"x":-130612.7734375,"y":-71515.1484375,"z":7812.560546875,"lat":41.1,"lon":33.7,"id":1938538806243921258,"color0":34,"color1":13,"color3":27,"color5":24,"baseLevel":88,"wildLevels":{"health":8,"stamina":16,"oxygen":13,"food":11,"weight":13,"melee":12,"speed":14}},{"x":-130233.1328125,"y":-23448.658203125,"z":4550.9091796875,"lat":47.1,"lon":33.7,"id":1487777371684702220,"female":true,"color0":20,"color1":13,"color3":22,"color5":36,"baseLevel":44,"wildLevels":{"health":10,"stamina":2,"oxygen":4,"food":7,"weight":5,"melee":7,"speed":8}},{"x":-132034.921875,"y":-83498.2890625,"z":4309.49609375,"lat":39.6,"lon":33.5,"id":893030572828156323,"color0":13,"color1":36,"color3":20,"color5":34,"baseLevel":8,"wildLevels":{"stamina":3,"food":2,"melee":1,"speed":1}},{"x":95048.40625,"y":-98073.8671875,"z":2652.3173828125,"lat":37.7,"lon":61.9,"id":788312192209622250,"color0":33,"color1":27,"color3":20,"color5":34,"baseLevel":28,"wildLevels":{"health":4,"stamina":3,"oxygen":5,"food":4,"weight":4,"melee":3,"speed":4}},{"x":136939.625,"y":-62378.484375,"z":-11779.724609375,"lat":42.2,"lon":67.1,"id":407059966607961348,"color0":14,"color1":34,"color3":20,"color5":36,"baseLevel":44,"wildLevels":{"health":6,"stamina":3,"oxygen":7,"food":5,"weight":9,"melee":9,"speed":4}},{"x":181385.5625,"y":-168031.515625,"z":-13227.765625,"lat":29.0,"lon":72.7,"id":1679299562550246457,"female":true,"color0":33,"color1":24,"color3":34,"color5":13,"baseLevel":76,"wildLevels":{"health":16,"stamina":10,"oxygen":10,"food":12,"weight":12,"melee":6,"speed":9}},{"x":120076.1953125,"y":193615.015625,"z":-9290.720703125,"lat":74.2,"lon":65.0,"id":1426693414671607198,"female":true,"color0":22,"color1":13,"color3":20,"color5":33,"baseLevel":32,"wildLevels":{"health":5,"stamina":4,"oxygen":7,"food":3,"weight":4,"melee":4,"speed":4}},{"x":62406.578125,"y":197457.546875,"z":-7161.76953125,"lat":74.7,"lon":57.8,"id":1765840726765085879,"female":true,"color0":14,"color1":20,"color3":22,"color5":35,"baseLevel":44,"wildLevels":{"health":7,"stamina":3,"oxygen":8,"food":11,"weight":5,"melee":5,"speed":4}}]
+[ {
+  "baseLevel" : 75,
+  "colorSetIndices" : {
+    "0" : 22,
+    "1" : 36,
+    "3" : 22,
+    "5" : 22
+  },
+  "female" : true,
+  "id" : 1266527461647920456,
+  "lastEnterStasisTime" : 6.39707883411075E7,
+  "location" : {
+    "x" : 88175.43,
+    "y" : -75131.29,
+    "z" : 2299.3381,
+    "lat" : 61.021927,
+    "lon" : 40.60859
+  },
+  "requiredTameAffinity" : 14700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 12,
+    "stamina" : 11,
+    "oxygen" : 9,
+    "food" : 12,
+    "weight" : 8,
+    "melee" : 10,
+    "speed" : 12
+  }
+}, {
+  "baseLevel" : 35,
+  "colorSetIndices" : {
+    "0" : 33,
+    "1" : 27,
+    "3" : 24,
+    "5" : 34
+  },
+  "id" : 1452804896059153535,
+  "lastEnterStasisTime" : 6.396458241770593E7,
+  "location" : {
+    "x" : 119201.21,
+    "y" : -167093.92,
+    "z" : -8739.196,
+    "lat" : 64.900154,
+    "lon" : 29.11326
+  },
+  "requiredTameAffinity" : 8700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 5,
+    "oxygen" : 6,
+    "food" : 2,
+    "weight" : 5,
+    "melee" : 7,
+    "speed" : 5
+  }
+}, {
+  "baseLevel" : 35,
+  "colorSetIndices" : {
+    "0" : 34,
+    "1" : 14,
+    "3" : 35,
+    "5" : 33
+  },
+  "id" : 1367419133825294038,
+  "lastEnterStasisTime" : 6.397820775767329E7,
+  "location" : {
+    "x" : -118861.86,
+    "y" : -94185.98,
+    "z" : 8745.97,
+    "lat" : 35.142265,
+    "lon" : 38.226753
+  },
+  "requiredTameAffinity" : 8700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 8,
+    "stamina" : 4,
+    "oxygen" : 5,
+    "food" : 3,
+    "weight" : 7,
+    "melee" : 4,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 100,
+  "colorSetIndices" : {
+    "0" : 22,
+    "1" : 14,
+    "3" : 14,
+    "5" : 34
+  },
+  "id" : 270234910060442319,
+  "lastEnterStasisTime" : 6.397817627298625E7,
+  "location" : {
+    "x" : -87503.586,
+    "y" : -95913.85,
+    "z" : 19354.113,
+    "lat" : 39.06205,
+    "lon" : 38.01077
+  },
+  "requiredTameAffinity" : 18450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 14,
+    "stamina" : 12,
+    "oxygen" : 16,
+    "food" : 18,
+    "weight" : 17,
+    "melee" : 10,
+    "speed" : 12
+  }
+}, {
+  "baseLevel" : 60,
+  "colorSetIndices" : {
+    "0" : 24,
+    "1" : 35,
+    "3" : 22,
+    "5" : 24
+  },
+  "id" : 1255806355725591248,
+  "lastEnterStasisTime" : 6.3928336E7,
+  "location" : {
+    "x" : 266388.1,
+    "y" : -285947.0,
+    "z" : -13514.642,
+    "lat" : 83.29851,
+    "lon" : 14.256626
+  },
+  "requiredTameAffinity" : 12450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 14,
+    "stamina" : 16,
+    "oxygen" : 3,
+    "food" : 7,
+    "weight" : 11,
+    "melee" : 8
+  }
+}, {
+  "baseLevel" : 15,
+  "colorSetIndices" : {
+    "0" : 34,
+    "1" : 33,
+    "3" : 36,
+    "5" : 36
+  },
+  "female" : true,
+  "id" : 1699774474876767213,
+  "lastEnterStasisTime" : 6.3928336E7,
+  "location" : {
+    "x" : 265435.5,
+    "y" : -285531.1,
+    "z" : -13573.879,
+    "lat" : 83.179436,
+    "lon" : 14.308613
+  },
+  "requiredTameAffinity" : 5700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 2,
+    "stamina" : 1,
+    "food" : 5,
+    "weight" : 3,
+    "melee" : 2,
+    "speed" : 1
+  }
+}, {
+  "baseLevel" : 15,
+  "colorSetIndices" : {
+    "0" : 27,
+    "1" : 36,
+    "3" : 20,
+    "5" : 35
+  },
+  "id" : 2127766449801966094,
+  "lastEnterStasisTime" : 6.398578421621219E7,
+  "location" : {
+    "x" : 286435.38,
+    "y" : -181486.19,
+    "z" : -14096.051,
+    "lat" : 85.80442,
+    "lon" : 27.314226
+  },
+  "requiredTameAffinity" : 5700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 5,
+    "stamina" : 1,
+    "oxygen" : 2,
+    "food" : 1,
+    "weight" : 1,
+    "melee" : 2,
+    "speed" : 2
+  }
+}, {
+  "baseLevel" : 40,
+  "colorSetIndices" : {
+    "0" : 27,
+    "1" : 36,
+    "3" : 22,
+    "5" : 36
+  },
+  "female" : true,
+  "id" : 1229434066388598785,
+  "lastEnterStasisTime" : 6.396436151385334E7,
+  "location" : {
+    "x" : 115168.76,
+    "y" : -241198.77,
+    "z" : -13542.6045,
+    "lat" : 64.396095,
+    "lon" : 19.850155
+  },
+  "requiredTameAffinity" : 9450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 5,
+    "stamina" : 7,
+    "oxygen" : 2,
+    "food" : 9,
+    "weight" : 5,
+    "melee" : 5,
+    "speed" : 6
+  }
+}, {
+  "baseLevel" : 25,
+  "colorSetIndices" : {
+    "0" : 34,
+    "1" : 34,
+    "3" : 22,
+    "5" : 22
+  },
+  "id" : 790983936369844402,
+  "lastEnterStasisTime" : 6.398687959630394E7,
+  "location" : {
+    "x" : -244116.86,
+    "y" : 132092.12,
+    "z" : -4531.434,
+    "lat" : 19.485394,
+    "lon" : 66.51152
+  },
+  "requiredTameAffinity" : 7200.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "oxygen" : 2,
+    "food" : 6,
+    "weight" : 6,
+    "melee" : 3,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 95,
+  "colorSetIndices" : {
+    "0" : 20,
+    "1" : 33,
+    "3" : 24,
+    "5" : 36
+  },
+  "female" : true,
+  "id" : 1482013860804355875,
+  "lastEnterStasisTime" : 6.396321905625878E7,
+  "location" : {
+    "x" : 180330.8,
+    "y" : -88384.69,
+    "z" : -9340.94,
+    "lat" : 72.54135,
+    "lon" : 38.951912
+  },
+  "requiredTameAffinity" : 17700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 12,
+    "stamina" : 15,
+    "oxygen" : 13,
+    "food" : 11,
+    "weight" : 21,
+    "melee" : 9,
+    "speed" : 13
+  }
+}, {
+  "baseLevel" : 35,
+  "colorSetIndices" : {
+    "0" : 27,
+    "1" : 13,
+    "3" : 35,
+    "5" : 35
+  },
+  "id" : 1269198888233381224,
+  "lastEnterStasisTime" : 6.397247290751429E7,
+  "location" : {
+    "x" : -213088.72,
+    "y" : -9624.421,
+    "z" : -7604.4062,
+    "lat" : 23.36391,
+    "lon" : 48.796947
+  },
+  "requiredTameAffinity" : 8700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 6,
+    "oxygen" : 5,
+    "food" : 8,
+    "weight" : 3,
+    "melee" : 5,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 20,
+  "colorSetIndices" : {
+    "0" : 27,
+    "1" : 24,
+    "3" : 33,
+    "5" : 33
+  },
+  "id" : 1453951218634108245,
+  "lastEnterStasisTime" : 6.3963240588497356E7,
+  "location" : {
+    "x" : 169250.47,
+    "y" : -119741.64,
+    "z" : -14092.487,
+    "lat" : 71.15631,
+    "lon" : 35.032295
+  },
+  "requiredTameAffinity" : 6450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 2,
+    "stamina" : 3,
+    "oxygen" : 1,
+    "food" : 3,
+    "weight" : 3,
+    "melee" : 5,
+    "speed" : 2
+  }
+}, {
+  "baseLevel" : 40,
+  "colorSetIndices" : {
+    "0" : 35,
+    "1" : 22,
+    "3" : 24,
+    "5" : 27
+  },
+  "female" : true,
+  "id" : 1984465110937866035,
+  "lastEnterStasisTime" : 6.396823621139868E7,
+  "location" : {
+    "x" : 120077.164,
+    "y" : -243982.97,
+    "z" : -13059.1,
+    "lat" : 65.00964,
+    "lon" : 19.502129
+  },
+  "requiredTameAffinity" : 9450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 6,
+    "stamina" : 4,
+    "oxygen" : 4,
+    "food" : 3,
+    "weight" : 3,
+    "melee" : 8,
+    "speed" : 11
+  }
+}, {
+  "baseLevel" : 90,
+  "colorSetIndices" : {
+    "0" : 22,
+    "1" : 22,
+    "3" : 24,
+    "5" : 27
+  },
+  "id" : 806370549598086262,
+  "lastEnterStasisTime" : 6.39635877249936E7,
+  "location" : {
+    "x" : 184017.62,
+    "y" : -169344.08,
+    "z" : -13390.576,
+    "lat" : 73.002205,
+    "lon" : 28.83199
+  },
+  "requiredTameAffinity" : 16950.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 10,
+    "stamina" : 15,
+    "oxygen" : 12,
+    "food" : 16,
+    "weight" : 11,
+    "melee" : 11,
+    "speed" : 14
+  }
+}, {
+  "baseLevel" : 90,
+  "colorSetIndices" : {
+    "0" : 34,
+    "1" : 13,
+    "3" : 22,
+    "5" : 13
+  },
+  "female" : true,
+  "id" : 416034219273765573,
+  "lastEnterStasisTime" : 6.397199995417732E7,
+  "location" : {
+    "x" : -178644.69,
+    "y" : -91854.984,
+    "z" : 2627.8298,
+    "lat" : 27.669415,
+    "lon" : 38.518127
+  },
+  "requiredTameAffinity" : 16950.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 13,
+    "stamina" : 14,
+    "oxygen" : 11,
+    "food" : 16,
+    "weight" : 11,
+    "melee" : 15,
+    "speed" : 9
+  }
+}, {
+  "baseLevel" : 120,
+  "colorSetIndices" : {
+    "0" : 33,
+    "1" : 34,
+    "3" : 20,
+    "5" : 24
+  },
+  "female" : true,
+  "id" : 498803736796262840,
+  "lastEnterStasisTime" : 6.39701960923582E7,
+  "location" : {
+    "x" : 7190.7983,
+    "y" : 15407.755,
+    "z" : -7035.6855,
+    "lat" : 50.89885,
+    "lon" : 51.92597
+  },
+  "requiredTameAffinity" : 21450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 14,
+    "stamina" : 17,
+    "oxygen" : 16,
+    "food" : 14,
+    "weight" : 24,
+    "melee" : 16,
+    "speed" : 18
+  }
+}, {
+  "baseLevel" : 20,
+  "colorSetIndices" : {
+    "0" : 35,
+    "1" : 22,
+    "3" : 33,
+    "5" : 22
+  },
+  "female" : true,
+  "id" : 1771279010103246649,
+  "lastEnterStasisTime" : 6.3972177556147374E7,
+  "location" : {
+    "x" : -14024.947,
+    "y" : 91582.836,
+    "z" : -4072.3452,
+    "lat" : 48.246883,
+    "lon" : 61.447853
+  },
+  "requiredTameAffinity" : 6450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 2,
+    "stamina" : 1,
+    "oxygen" : 1,
+    "food" : 5,
+    "weight" : 3,
+    "melee" : 4,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 10,
+  "colorSetIndices" : {
+    "0" : 13,
+    "1" : 22,
+    "3" : 22,
+    "5" : 33
+  },
+  "female" : true,
+  "id" : 1505466048484688318,
+  "lastEnterStasisTime" : 6.3928336E7,
+  "location" : {
+    "x" : -45802.496,
+    "y" : -29881.123,
+    "z" : -7918.532,
+    "lat" : 44.27469,
+    "lon" : 46.26486
+  },
+  "requiredTameAffinity" : 4950.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 3,
+    "oxygen" : 1,
+    "food" : 2,
+    "weight" : 1,
+    "melee" : 2
+  }
+}, {
+  "baseLevel" : 55,
+  "colorSetIndices" : {
+    "0" : 33,
+    "1" : 33,
+    "3" : 20,
+    "5" : 20
+  },
+  "id" : 523442778746699572,
+  "lastEnterStasisTime" : 6.396992486410399E7,
+  "location" : {
+    "x" : -49685.906,
+    "y" : -22365.416,
+    "z" : -9981.767,
+    "lat" : 43.78926,
+    "lon" : 47.204323
+  },
+  "requiredTameAffinity" : 11700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 9,
+    "stamina" : 3,
+    "oxygen" : 12,
+    "food" : 1,
+    "weight" : 9,
+    "melee" : 6,
+    "speed" : 14
+  }
+}, {
+  "baseLevel" : 20,
+  "colorSetIndices" : {
+    "0" : 34,
+    "1" : 22,
+    "3" : 20,
+    "5" : 20
+  },
+  "id" : 150487304797407763,
+  "lastEnterStasisTime" : 6.397179026204382E7,
+  "location" : {
+    "x" : -81366.055,
+    "y" : 33523.164,
+    "z" : -14110.058,
+    "lat" : 39.829243,
+    "lon" : 54.190395
+  },
+  "requiredTameAffinity" : 6450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 2,
+    "oxygen" : 3,
+    "food" : 2,
+    "weight" : 5,
+    "melee" : 2,
+    "speed" : 1
+  }
+}, {
+  "baseLevel" : 90,
+  "colorSetIndices" : {
+    "0" : 14,
+    "1" : 24,
+    "3" : 13,
+    "5" : 34
+  },
+  "female" : true,
+  "id" : 533184580340776647,
+  "lastEnterStasisTime" : 6.398041536924973E7,
+  "location" : {
+    "x" : 84442.22,
+    "y" : 183857.72,
+    "z" : -12614.589,
+    "lat" : 60.555275,
+    "lon" : 72.982216
+  },
+  "requiredTameAffinity" : 16950.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 17,
+    "stamina" : 12,
+    "oxygen" : 11,
+    "food" : 12,
+    "weight" : 16,
+    "melee" : 15,
+    "speed" : 6
+  }
+}, {
+  "baseLevel" : 25,
+  "colorSetIndices" : {
+    "0" : 13,
+    "1" : 36,
+    "3" : 20,
+    "5" : 27
+  },
+  "id" : 565353855578224637,
+  "lastEnterStasisTime" : 6.3928336E7,
+  "location" : {
+    "x" : 295899.62,
+    "y" : -283542.38,
+    "z" : -14185.732,
+    "lat" : 86.98746,
+    "lon" : 14.557201
+  },
+  "requiredTameAffinity" : 7200.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 5,
+    "stamina" : 5,
+    "oxygen" : 3,
+    "food" : 4,
+    "weight" : 2,
+    "melee" : 3,
+    "speed" : 2
+  }
+}, {
+  "baseLevel" : 15,
+  "colorSetIndices" : {
+    "0" : 13,
+    "1" : 14,
+    "3" : 22,
+    "5" : 24
+  },
+  "id" : 1884106452399054766,
+  "lastEnterStasisTime" : 6.39868795290523E7,
+  "location" : {
+    "x" : -236443.98,
+    "y" : 132002.05,
+    "z" : -5168.7393,
+    "lat" : 20.444502,
+    "lon" : 66.50026
+  },
+  "requiredTameAffinity" : 5700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 1,
+    "oxygen" : 2,
+    "food" : 1,
+    "weight" : 4,
+    "melee" : 1,
+    "speed" : 1
+  }
+}, {
+  "baseLevel" : 25,
+  "colorSetIndices" : {
+    "0" : 20,
+    "1" : 34,
+    "3" : 14,
+    "5" : 14
+  },
+  "female" : true,
+  "id" : 701585132931597218,
+  "lastEnterStasisTime" : 6.396852134292382E7,
+  "location" : {
+    "x" : 119835.49,
+    "y" : -81462.92,
+    "z" : -8800.721,
+    "lat" : 64.97944,
+    "lon" : 39.817135
+  },
+  "requiredTameAffinity" : 7200.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 3,
+    "oxygen" : 2,
+    "food" : 5,
+    "weight" : 3,
+    "melee" : 3,
+    "speed" : 4
+  }
+}, {
+  "baseLevel" : 10,
+  "colorSetIndices" : {
+    "0" : 33,
+    "1" : 33,
+    "3" : 33,
+    "5" : 33
+  },
+  "id" : 2101907529866541228,
+  "lastEnterStasisTime" : 6.397163523855468E7,
+  "location" : {
+    "x" : -169211.6,
+    "y" : -56057.113,
+    "z" : -739.9193,
+    "lat" : 28.84855,
+    "lon" : 42.99286
+  },
+  "requiredTameAffinity" : 4950.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 1,
+    "stamina" : 2,
+    "oxygen" : 1,
+    "food" : 1,
+    "weight" : 1,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 20,
+  "colorSetIndices" : {
+    "0" : 36,
+    "1" : 33,
+    "3" : 27,
+    "5" : 20
+  },
+  "id" : 670505568615346068,
+  "lastEnterStasisTime" : 6.396455658201574E7,
+  "location" : {
+    "x" : 124628.01,
+    "y" : -203317.08,
+    "z" : -13221.085,
+    "lat" : 65.5785,
+    "lon" : 24.585365
+  },
+  "requiredTameAffinity" : 6450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 5,
+    "stamina" : 2,
+    "oxygen" : 2,
+    "food" : 2,
+    "weight" : 2,
+    "melee" : 3,
+    "speed" : 3
+  }
+}, {
+  "baseLevel" : 55,
+  "colorSetIndices" : {
+    "0" : 22,
+    "1" : 35,
+    "3" : 24,
+    "5" : 35
+  },
+  "id" : 2051510044383762683,
+  "lastEnterStasisTime" : 6.397258476207425E7,
+  "location" : {
+    "x" : -139206.88,
+    "y" : 34114.297,
+    "z" : -13998.676,
+    "lat" : 32.59914,
+    "lon" : 54.264286
+  },
+  "requiredTameAffinity" : 11700.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 8,
+    "stamina" : 7,
+    "oxygen" : 9,
+    "food" : 8,
+    "weight" : 7,
+    "melee" : 9,
+    "speed" : 6
+  }
+}, {
+  "baseLevel" : 25,
+  "colorSetIndices" : {
+    "0" : 24,
+    "1" : 24,
+    "3" : 33,
+    "5" : 13
+  },
+  "female" : true,
+  "id" : 1934558625705687723,
+  "lastEnterStasisTime" : 6.397183592913521E7,
+  "location" : {
+    "x" : -29477.99,
+    "y" : 14111.116,
+    "z" : -9206.8125,
+    "lat" : 46.31525,
+    "lon" : 51.76389
+  },
+  "requiredTameAffinity" : 7200.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "stamina" : 4,
+    "oxygen" : 5,
+    "food" : 4,
+    "weight" : 3,
+    "melee" : 6,
+    "speed" : 2
+  }
+}, {
+  "baseLevel" : 80,
+  "colorSetIndices" : {
+    "0" : 20,
+    "1" : 35,
+    "3" : 24,
+    "5" : 35
+  },
+  "female" : true,
+  "id" : 122830494523702848,
+  "lastEnterStasisTime" : 6.395743019630931E7,
+  "location" : {
+    "x" : 14403.467,
+    "y" : -8985.66,
+    "z" : -13862.571,
+    "lat" : 51.800434,
+    "lon" : 48.876793
+  },
+  "requiredTameAffinity" : 15450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 9,
+    "stamina" : 12,
+    "oxygen" : 12,
+    "food" : 13,
+    "weight" : 9,
+    "melee" : 15,
+    "speed" : 9
+  }
+}, {
+  "baseLevel" : 40,
+  "colorSetIndices" : {
+    "0" : 22,
+    "1" : 22,
+    "3" : 34,
+    "5" : 22
+  },
+  "female" : true,
+  "id" : 687134315863167886,
+  "lastEnterStasisTime" : 6.396208037125689E7,
+  "location" : {
+    "x" : 199461.05,
+    "y" : -74266.414,
+    "z" : -10803.584,
+    "lat" : 74.93263,
+    "lon" : 40.716698
+  },
+  "requiredTameAffinity" : 9450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 7,
+    "stamina" : 4,
+    "oxygen" : 6,
+    "food" : 8,
+    "weight" : 5,
+    "melee" : 7,
+    "speed" : 2
+  }
+}, {
+  "baseLevel" : 20,
+  "colorSetIndices" : {
+    "0" : 20,
+    "1" : 24,
+    "3" : 33,
+    "5" : 36
+  },
+  "id" : 780414575802659034,
+  "lastEnterStasisTime" : 6.396853243592672E7,
+  "location" : {
+    "x" : 104049.27,
+    "y" : -94398.555,
+    "z" : -1083.2179,
+    "lat" : 63.006157,
+    "lon" : 38.20018
+  },
+  "requiredTameAffinity" : 6450.0,
+  "tamingEffectivness" : 1.0,
+  "team" : 7,
+  "type" : "Rex",
+  "wildLevels" : {
+    "health" : 4,
+    "stamina" : 2,
+    "oxygen" : 2,
+    "food" : 4,
+    "weight" : 2,
+    "melee" : 3,
+    "speed" : 2
+  }
+} ]
